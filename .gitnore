@@ -1,0 +1,25 @@
+# Ignorar archivos y carpetas generadas por CMake
+/CMakeFiles/
+/CMakeCache.txt
+/Debian/
+/Makefile
+/*.swp
+
+# Ignorar archivos binarios y ejecutables
+poo_project
+
+# Ignorar directorios y archivos de compilación
+/build/
+
+# Ignorar archivos de configuración de IDEs
+.vscode/
+.idea/
+
+
+# Archivos de logs
+*.log
+
+.DS_Store
+
+.vs/
+out/
