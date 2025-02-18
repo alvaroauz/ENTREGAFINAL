@@ -34,8 +34,14 @@ void Paciente::setNotas(const std::string &notas){
     this->notas=notas;
 }
 
+
+
 int Paciente::getTelefono() const{
     return this->telefono;
+}
+
+void Paciente::setTelefono(int telefono) {
+    this->telefono = telefono;
 }
 
 Fecha Paciente::getFechaRegistro() const {

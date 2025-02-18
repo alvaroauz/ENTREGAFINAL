@@ -1,17 +1,22 @@
 cmake_minimum_required(VERSION 3.6)
-project(RECUPERACION_PROGRAMACION)
+project(RECUPERACIONPROGRAMACION)
 
-set(SOURCES
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+add_executable(RECUPERACIONPROGRAMACION
     main.cpp
     medico.cpp
     paciente.cpp
     persona.cpp
     fecha.cpp
     registroClinico.cpp
-    citaMedica.cpp
+    citamedica.cpp
 )
 
-add_executable(${PROJECT_NAME} ${SOURCES})
+if(MSVC)
+    add_compile_options(/W4 /utf-8)
+    target_compile_definitions(RECUPERACIONPROGRAMACION PRIVATE _CRT_SECURE_NO_WARNINGS)
+endif()
 
-set(CMAKE_BUILD_TYPE Debug)
-set(CMAKE_CXX_FLAGS_DEBUG "-pedantic -Wall -W -Wconversion -O0 -ggdb -std=gnu++17")
+target_include_directories(RECUPERACIONPROGRAMACION PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})

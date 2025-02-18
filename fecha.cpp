@@ -3,39 +3,39 @@
 #include <iomanip> 
 
 Fecha::Fecha(int dia, int mes, int anio) {
-    this->dia = dia;
-    this->mes = mes;
-    this->anio = anio;
+    m_dia = dia;
+    m_mes = mes;
+    m_anio = anio;
 }
 
 Fecha::Fecha(int dia, int mes) {
-    this->dia = dia;
-    this->mes = mes;
-    this->anio = 2025;
+    m_dia = dia;
+    m_mes = mes;
+    m_anio = 2025;
 }
 
 Fecha::Fecha() {
-    this->dia = 0;
-    this->mes = 0;
-    this->anio = 2025;
+    m_dia = 0;
+    m_mes = 0;
+    m_anio = 2025;
 }
 
-bool Fecha::operator==(const Fecha& fecha) const {
-    return (this->dia == fecha.dia && 
-            this->mes == fecha.mes && 
-            this->anio == fecha.anio);
+bool Fecha::operator==(const Fecha& otra) const {
+    return (m_dia == otra.m_dia &&
+        m_mes == otra.m_mes &&
+        m_anio == otra.m_anio);
 }
 
-bool Fecha::operator<(const Fecha& fecha) const { 
-    if (this->anio < fecha.anio) {
+bool Fecha::operator<(const Fecha& otra) const {
+    if (m_anio < otra.m_anio) {
         return true;
     }
-    else if (this->anio == fecha.anio) {
-        if (this->mes < fecha.mes) {
+    else if (m_anio == otra.m_anio) {
+        if (m_mes < otra.m_mes) {
             return true;
         }
-        else if (this->mes == fecha.mes) {
-            if (this->dia < fecha.dia) {
+        else if (m_mes == otra.m_mes) {
+            if (m_dia < otra.m_dia) {
                 return true;
             }
         }
@@ -44,32 +44,32 @@ bool Fecha::operator<(const Fecha& fecha) const {
 }
 
 std::ostream& operator<<(std::ostream& out, const Fecha& fecha) {
-    out << std::setw(2) << std::setfill('0') << fecha.dia << "/"
-        << std::setw(2) << std::setfill('0') << fecha.mes << "/"
-        << fecha.anio;
+    out << std::setw(2) << std::setfill('0') << fecha.m_dia << "/"
+        << std::setw(2) << std::setfill('0') << fecha.m_mes << "/"
+        << fecha.m_anio;
     return out;
 }
 
-int Fecha::getDia() {
-    return this->dia;
+int Fecha::getDia() const {
+    return m_dia;
 }
 
 void Fecha::setDia(int dia) {
-    this->dia = dia;
+    m_dia = dia;
 }
 
-int Fecha::getMes() {
-    return this->mes;
+int Fecha::getMes() const {
+    return m_mes;
 }
 
 void Fecha::setMes(int mes) {
-    this->mes = mes;
+    m_mes = mes;
 }
 
-int Fecha::getAnio() {
-    return this->anio;
+int Fecha::getAnio() const {
+    return m_anio;
 }
 
 void Fecha::setAnio(int anio) {
-    this->anio = anio;
+    m_anio = anio;
 }
